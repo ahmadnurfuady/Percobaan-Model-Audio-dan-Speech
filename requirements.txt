@@ -1,0 +1,31 @@
+# =============================================================================
+# Requirements - Percobaan Model Audio & Speech
+# =============================================================================
+
+# Core ML
+torch>=2.0
+torchaudio>=2.0
+transformers>=4.30
+numpy
+scipy
+soundfile
+
+# Flask Web UI (SeamlessM4T)
+flask
+
+# Gradio UI (semua model)
+gradio>=4.0
+
+# Whisper (Speech-to-Text)
+openai-whisper
+
+# TTS (Coqui Text-to-Speech)
+TTS
+
+# AudioLDM (Text-to-Audio)
+diffusers>=0.20
+
+# BEATs (Audio Tagging) - tidak perlu pip, kode sudah di folder beats/
+
+# Safetensors
+safetensors

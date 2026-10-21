@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeamlessM4T Studio - Multimodal Speech & Text AI</title>
+    <meta name="description" content="Antarmuka Web Modern untuk Meta SeamlessM4T v2: Text-to-Speech, Text-to-Text, Speech-to-Text, dan Speech-to-Speech Translation.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Background Gradient Spheres -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="logo-box">
+                    <i class="ph-bold ph-waveform"></i>
+                </div>
+                <div>
+                    <h1 class="brand-title">SeamlessM4T <span>Studio</span></h1>
+                    <p class="brand-subtitle">Multimodal AI Translation & Speech Synthesis by Meta</p>
+                </div>
+            </div>
+
+            <div class="header-status">
+                <div class="status-chip" id="modelStatusChip">
+                    <span class="status-dot dot-idle" id="statusDot"></span>
+                    <span id="modelStatusText">Memeriksa Status...</span>
+                </div>
+                <button class="btn-action-small" id="btnPreloadModel" title="Muat bobot model ke memori sekarang">
+                    <i class="ph-bold ph-lightning"></i> Muat Model
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN TABS NAVIGATION -->
+        <nav class="nav-tabs" role="tablist">
+            <button class="tab-btn active" data-tab="t2st" id="tabBtnT2st">
+                <i class="ph-bold ph-speaker-high"></i>
+                <span>Text-to-Speech (T2ST)</span>
+            </button>
+            <button class="tab-btn" data-tab="t2tt" id="tabBtnT2tt">
+                <i class="ph-bold ph-translate"></i>
+                <span>Text-to-Text (T2TT)</span>
+            </button>
+            <button class="tab-btn" data-tab="s2tt" id="tabBtnS2tt">
+                <i class="ph-bold ph-microphone"></i>
+                <span>Speech-to-Text (S2TT)</span>
+            </button>
+            <button class="tab-btn" data-tab="s2st" id="tabBtnS2st">
+                <i class="ph-bold ph-arrows-clockwise"></i>
+                <span>Speech-to-Speech (S2ST)</span>
+            </button>
+        </nav>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="main-content">
+            <!-- ============================================================ -->
+            <!-- TAB 1: TEXT-TO-SPEECH (T2ST)                                -->
+            <!-- ============================================================ -->
+            <section class="tab-panel active" id="panelT2st">
+                <div class="card glass-panel">
+                    <div class="card-header">
+                        <div class="panel-info">
+                            <h2>Sintesis Suara dari Teks (Text-to-Speech)</h2>
+                            <p>Masukkan teks dalam bahasa sumber dan dengarkan pengucapannya dalam bahasa target.</p>
+                        </div>
+                    </div>
+
+                    <!-- Language Controls -->
+                    <div class="lang-controls">
+                        <div class="lang-select-group">
+                            <label for="t2stSrcLang"><i class="ph-bold ph-globe"></i> Bahasa Teks Input</label>
+                            <select id="t2stSrcLang" class="lang-dropdown">
+                                {% for lang in languages %}
+                                <option value="{{ lang.code }}" {% if lang.code == 'ind' %}selected{% endif %}>
+                                    {{ lang.flag }} {{ lang.name }} ({{ lang.code }})
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="arrow-indicator">
+                            <i class="ph-bold ph-arrow-right"></i>
+                        </div>
+
+                        <div class="lang-select-group">
+                            <label for="t2stTgtLang"><i class="ph-bold ph-speaker-simple-high"></i> Bahasa Suara Target</label>
+                            <select id="t2stTgtLang" class="lang-dropdown">
+                                {% for lang in languages %}
+                                <option value="{{ lang.code }}" {% if lang.code == 'eng' %}selected{% endif %}>
+                                    {{ lang.flag }} {{ lang.name }} ({{ lang.code }})
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Text Area Input -->
+                    <div class="input-block">
+                        <label for="t2stTextInput" class="input-label">
+                            <span>Teks Input</span>
+                            <span class="char-count" id="t2stCharCount">0 karakter</span>
+                        </label>
+                        <textarea id="t2stTextInput" class="text-input" rows="4" placeholder="Ketik kalimat yang ingin diubah menjadi suara di sini... (Contoh: Selamat pagi, selamat datang di layanan kami.)"></textarea>
+
+                        <!-- Quick Samples -->
+                        <div class="samples-row">
+                            <span class="samples-title">Contoh:</span>
+                            <button type="button" class="btn-chip" data-target="t2stTextInput" data-text="Selamat pagi, selamat datang di layanan kami.">Selamat Pagi</button>
+                            <button type="button" class="btn-chip" data-target="t2stTextInput" data-text="Terima kasih banyak atas bantuan dan informasi yang telah diberikan.">Terima Kasih</button>
+                            <button type="button" class="btn-chip" data-target="t2stTextInput" data-text="Halo semuanya, ini adalah uji coba sintesis suara Meta SeamlessM4T.">Uji Coba AI</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="action-footer">
+                        <button class="btn-primary" id="btnRunT2st">
+                            <i class="ph-bold ph-speaker-high"></i>
+                            <span>Sintesis & Buat Suara</span>
+                        </button>
+                    </div>
+
+                    <!-- Output Area -->
+                    <div class="output-box hidden" id="t2stOutputBox">
+                        <div class="output-header">
+                            <span class="output-title"><i class="ph-bold ph-check-circle"></i> Hasil Audio Berhasil Dibuat</span>
+                        </div>
+                        <div class="audio-player-wrapper">
+                            <audio id="t2stAudioPlayer" controls class="custom-audio"></audio>
+                            <a id="t2stDownloadBtn" class="btn-download" download="seamlessm4t_speech.wav">
+                                <i class="ph-bold ph-download-simple"></i> Unduh WAV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- TAB 2: TEXT-TO-TEXT TRANSLATION (T2TT)                       -->
+            <!-- ============================================================ -->
+            <section class="tab-panel" id="panelT2tt">
+                <div class="card glass-panel">
+                    <div class="card-header">
+                        <div class="panel-info">
+                            <h2>Penerjemah Teks Cerdas (Text-to-Text)</h2>
+                            <p>Terjemahkan teks antar puluhan bahasa dunia dengan model translasi multimodal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Language Controls with Swap -->
+                    <div class="lang-controls">
+                        <div class="lang-select-group">
+                            <label for="t2ttSrcLang">Bahasa Asal</label>
+                            <select id="t2ttSrcLang" class="lang-dropdown">
+                                {% for lang in languages %}
+                                <option value="{{ lang.code }}" {% if lang.code == 'ind' %}selected{% endif %}>
+                                    {{ lang.flag }} {{ lang.name }} ({{ lang.code }})
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <button type="button" class="btn-swap" id="btnSwapLang" title="Tukar Bahasa">
+                            <i class="ph-bold ph-arrows-left-right"></i>
+                        </button>
+
+                        <div class="lang-select-group">
+                            <label for="t2ttTgtLang">Bahasa Tujuan</label>
+                            <select id="t2ttTgtLang" class="lang-dropdown">
+                                {% for lang in languages %}
+                                <option value="{{ lang.code }}" {% if lang.code == 'eng' %}selected{% endif %}>
+                                    {{ lang.flag }} {{ lang.name }} ({{ lang.code }})
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dual Pane Text Translation -->
+                    <div class="translation-grid">
+                        <div class="pane-box">
+                            <div class="pane-header">
+                                <span>Teks Sumber</span>
+                                <button type="button" class="btn-tool" id="btnClearT2tt" title="Hapus teks"><i class="ph-bold ph-trash"></i></button>
+                            </div>
+                            <textarea id="t2ttInputText" class="text-input" rows="6" placeholder="Ketik atau tempel teks yang ingin diterjemahkan di sini..."></textarea>
+                        </div>
+
+                        <div class="pane-box">
+                            <div class="pane-header">
+                                <span>Hasil Terjemahan</span>
+                                <button type="button" class="btn-tool" id="btnCopyT2tt" title="Salin terjemahan"><i class="ph-bold ph-copy"></i> Salin</button>
+                            </div>
+                            <textarea id="t2ttOutputText" class="text-input result-pane" rows="6" placeholder="Hasil terjemahan akan tampil di sini..." readonly></textarea>
+                        </div>
+                    </div>
+
+                    <div class="action-footer">
+                        <button class="btn-primary" id="btnRunT2tt">
+                            <i class="ph-bold ph-translate"></i>
+                            <span>Terjemahkan Sekarang</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- TAB 3: SPEECH-TO-TEXT (S2TT / ASR)                           -->
+            <!-- ============================================================ -->
+            <section class="tab-panel" id="panelS2tt">
+                <div class="card glass-panel">
+                    <div class="card-header">
+                        <div class="panel-info">
+                            <h2>Transkripsi & Terjemah Suara (Speech-to-Text)</h2>
+                            <p>Rekam suara dari mikrofon atau unggah file rekaman untuk ditranskripsi ke teks.</p>
+                        </div>
+                    </div>
+
+                    <!-- Audio Input Method Toggle -->
+                    <div class="audio-input-switcher">
+                        <button type="button" class="switch-btn active" data-method="mic" id="btnSwitchMic">
+                            <i class="ph-bold ph-microphone"></i> Rekam Mikrofon
+                        </button>
+                        <button type="button" class="switch-btn" data-method="upload" id="btnSwitchUpload">
+                            <i class="ph-bold ph-upload-simple"></i> Unggah File Audio
+                        </button>
+                    </div>
+
+                    <!-- Microphone Section -->
+                    <div class="audio-method-box active" id="boxMicSection">
+                        <div class="recorder-card">
+                            <div class="record-pulse-wrapper" id="recordPulseRing">
+                                <button type="button" class="btn-record" id="btnToggleRecord">
+                                    <i class="ph-bold ph-microphone" id="recordIcon"></i>
+                                </button>
+                            </div>
+                            <div class="timer-display" id="recordTimer">00:00</div>
+                            <p class="record-hint" id="recordStatusText">Klik tombol mikrofon untuk mulai merekam</p>
+
+                            <!-- Recorded audio playback preview -->
+                            <div class="recorded-preview hidden" id="recordedAudioPreviewBox">
+                                <audio id="recordedAudioPreview" controls></audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- File Upload Section -->
+                    <div class="audio-method-box" id="boxUploadSection">
+                        <div class="dropzone" id="audioDropzone">
+                            <i class="ph-bold ph-cloud-arrow-up drop-icon"></i>
+                            <h3>Pilih atau Seret File Audio ke Sini</h3>
+                            <p>Mendukung format WAV, MP3, M4A, OGG, FLAC</p>
+                            <input type="file" id="audioFileInput" accept="audio/*" class="file-input-hidden">
+                            <button type="button" class="btn-secondary" id="btnBrowseAudio">Pilih File Audio</button>
+                            <span class="file-chosen-text hidden" id="chosenFileName"></span>
+                        </div>
+                    </div>
+
+                    <!-- Target Language Selection -->
+                    <div class="lang-controls single-target">
+                        <div class="lang-select-group">
+                            <label for="s2ttTgtLang"><i class="ph-bold ph-translate"></i> Bahasa Teks Hasil Transkripsi</label>
+                            <select id="s2ttTgtLang" class="lang-dropdown">
+                                {% for lang in languages %}
+                                <option value="{{ lang.code }}" {% if lang.code == 'ind' %}selected{% endif %}>
+                                    {{ lang.flag }} {{ lang.name }} ({{ lang.code }})
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="action-footer">
+                        <button class="btn-primary" id="btnRunS2tt">
+                            <i class="ph-bold ph-text-align-left"></i>
+                            <span>Transkripsikan Audio ke Teks</span>
+                        </button>
+                    </div>
+
+                    <!-- Output Result -->
+                    <div class="output-box hidden" id="s2ttOutputBox">
+                        <div class="pane-header">
+                            <span><i class="ph-bold ph-file-text"></i> Hasil Transkripsi</span>
+                            <button type="button" class="btn-tool" id="btnCopyS2tt"><i class="ph-bold ph-copy"></i> Salin</button>
+                        </div>
+                        <textarea id="s2ttResultText" class="text-input result-pane" rows="4" readonly></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================ -->
+            <!-- TAB 4: SPEECH-TO-SPEECH (S2ST)                              -->
+            <!-- ============================================================ -->
+            <section class="tab-panel" id="panelS2st">
+                <div class="card glass-panel">
+                    <div class="card-header">
+                        <div class="panel-info">
+                            <h2>Penerjemah Suara ke Suara (Speech-to-Speech)</h2>
+                            <p>Ucapkan kalimat dalam satu bahasa, lalu dengarkan langsung terjemahannya dalam suara bahasa lain.</p>
+                        </div>
+                    </div>
+
+                    <!-- Target Language Selection -->
+                    <div class="lang-controls single-target">
+                        <div class="lang-select-group">
+                            <label for="s2stTgtLang"><i class="ph-bold ph-speaker-simple-high"></i> Bahasa Suara Hasil Terjemahan</label>
+                            <select id="s2stTgtLang" class="lang-dropdown">
+                                {% for lang in languages %}
+                                <option value="{{ lang.code }}" {% if lang.code == 'eng' %}selected{% endif %}>
+                                    {{ lang.flag }} {{ lang.name }} ({{ lang.code }})
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Audio Source (Upload or Record) -->
+                    <div class="recorder-card" style="margin-top: 1.5rem;">
+                        <button type="button" class="btn-record" id="btnToggleRecordS2st">
+                            <i class="ph-bold ph-microphone" id="recordIconS2st"></i>
+                        </button>
+                        <div class="timer-display" id="recordTimerS2st">00:00</div>
+                        <p class="record-hint" id="recordStatusTextS2st">Klik untuk merekam ucapan Anda</p>
+                        <div class="recorded-preview hidden" id="recordedAudioPreviewBoxS2st">
+                            <audio id="recordedAudioPreviewS2st" controls></audio>
+                        </div>
+                    </div>
+
+                    <div class="action-footer">
+                        <button class="btn-primary" id="btnRunS2st">
+                            <i class="ph-bold ph-arrows-clockwise"></i>
+                            <span>Terjemahkan Suara ke Suara</span>
+                        </button>
+                    </div>
+
+                    <!-- Output Audio -->
+                    <div class="output-box hidden" id="s2stOutputBox">
+                        <div class="output-header">
+                            <span class="output-title"><i class="ph-bold ph-check-circle"></i> Audio Hasil Terjemahan</span>
+                        </div>
+                        <div class="audio-player-wrapper">
+                            <audio id="s2stAudioPlayer" controls class="custom-audio"></audio>
+                            <a id="s2stDownloadBtn" class="btn-download" download="seamlessm4t_s2st.wav">
+                                <i class="ph-bold ph-download-simple"></i> Unduh WAV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <p>Meta SeamlessM4T v2 Large • Antarmuka Web Interaktif • Proyek Akhir</p>
+        </footer>
+    </div>
+
+    <!-- LOADING OVERLAY MODAL -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-card">
+            <div class="spinner"></div>
+            <h3 id="loadingTitle">Memproses Model...</h3>
+            <p id="loadingSubtitle">Harap tunggu, proses inferensi sedang berjalan.</p>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Model files (too large for git)
+Model SeamlessM4T v2/
+Model BEATs/*.pt
+# Keep Model BEATs/class_labels_indices.csv (needed for audio tagging)
+Model Music Gen/
+Model AudioLDM/
+TTS/
+Model Whisper/
+
+# Temporary
+temp_audio/
+*.wav
+*.mp3
+
+# Benchmark results (generated)
+hasil_benchmark/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Agent/AI config
+.agents/
+.claude/
+skills-lock.json
