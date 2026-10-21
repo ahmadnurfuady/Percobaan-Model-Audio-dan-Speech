@@ -1,0 +1,11 @@
+﻿No,Nama_Audio,Sumber_Audio,Durasi_detik,Label_Sebenarnya,Top1_Label,Top1_Prob_persen,Top2_Label,Top3_Label,Top4_Label,Top5_Label,Benar_Top1,Benar_Top5,Waktu_Proses_detik,Keterangan
+1,sine_440hz,,,Sine wave,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+2,sine_880hz,,,Sine wave,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+3,sine_220hz,,,Sine wave,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+4,noise_white,,,White noise,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+5,noise_pink,,,Pink noise,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+6,sine_1000hz,,,Sine wave,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+7,sine_2000hz,,,Sine wave,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+8,sine_100hz,,,Sine wave,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+9,chord_major,,,Music,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"
+10,silence,,,Silence,,,,,,,,,,"ERROR: tuple indices must be integers or slices, not str"

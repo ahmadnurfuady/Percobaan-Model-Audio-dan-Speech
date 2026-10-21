@@ -1,0 +1,22 @@
+﻿No,Prompt,Kategori,Negative_Prompt,Inference_Steps,Guidance_Scale,Durasi_detik,Waktu_Generate_detik,Kecocokan_Prompt_1_5,Realistis_1_5,Keterangan
+1,heavy rain falling on a metal roof,Alam,"music, talking",20,3.5,5,23.161,,,auto
+2,ocean waves crashing on a rocky shore,Alam,"music, speech",20,3.5,5,25.834,,,auto
+3,strong wind blowing through trees,Alam,"music, voices",20,3.5,5,26.081,,,auto
+4,a dog barking aggressively,Hewan,"music, background noise",20,3.5,4,21.558,,,auto
+5,birds chirping in a forest,Hewan,"music, wind",20,3.5,5,21.282,,,auto
+6,a cat meowing loudly,Hewan,"music, talking",20,3.5,4,21.806,,,auto
+7,car engine revving loudly,Mesin,"music, voices",20,3.5,4,22.179,,,auto
+8,typewriter clicking rapidly,Mesin,"music, echo",20,3.5,4,11.835,,,auto
+9,electric drill buzzing and grinding,Mesin,"music, speech",20,3.5,4,10.458,,,auto
+10,crowd applauding enthusiastically,Manusia,"music, noise",20,3.5,5,12.874,,,auto
+11,people laughing in a group,Manusia,"music, wind",20,3.5,5,12.857,,,auto
+12,footsteps walking on gravel,Manusia,"music, talking",20,3.5,4,10.839,,,auto
+13,busy coffee shop with background chatter,Suasana,"music, echo",20,3.5,5,12.708,,,auto
+14,forest ambience with birds and wind,Suasana,"music, traffic",20,3.5,5,12.718,,,auto
+15,crowded market with vendors shouting,Suasana,"music, echo",20,3.5,5,12.743,,,auto
+16,heavy rain falling on a metal roof,Alam-steps10,"music, talking",10,3.5,5,8.38,,,auto
+17,heavy rain falling on a metal roof,Alam-steps50,"music, talking",50,3.5,5,25.962,,,auto
+18,a dog barking aggressively,Hewan-steps10,"music, background noise",10,3.5,4,7.036,,,auto
+19,a dog barking aggressively,Hewan-steps50,"music, background noise",50,3.5,4,21.471,,,auto
+20,busy coffee shop with background chatter,Suasana-steps10,"music, echo",10,3.5,5,8.533,,,auto
+21,busy coffee shop with background chatter,Suasana-steps50,"music, echo",50,3.5,5,25.847,,,auto

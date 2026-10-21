@@ -1,0 +1,16 @@
+﻿No,Jenis_Fitur,Bahasa_Sumber,Bahasa_Tujuan,Input_Teks,Output_Dihasilkan,Referensi_Terjemahan,Kesamaan_Makna_1_5,Waktu_Proses_detik,Keterangan
+1,T2TT,ind,eng,Saya suka belajar bahasa.,,,,,ERROR: 
+2,T2TT,ind,eng,"Selamat pagi, apa kabar?",,,,,ERROR: [Errno 22] Invalid argument
+3,T2TT,ind,eng,Teknologi kecerdasan buatan berkembang sangat pesat dalam dekade terakhir.,,,,,ERROR: 
+4,T2TT,eng,ind,The weather is very nice today.,Cuaca sangat bagus hari ini.,Cuaca sangat bagus hari ini.,,23.351,auto
+5,T2TT,eng,ind,Machine learning is a subset of artificial intelligence.,Pembelajaran mesin adalah bagian dari kecerdasan buatan.,Pembelajaran mesin adalah bagian dari kecerdasan buatan.,,3.529,auto
+6,T2TT,ind,jpn,Terima kasih banyak.,ありがとうございます.,どうもありがとう。,,1.938,auto
+7,T2TT,ind,fra,Apa nama kamu?,,,,,ERROR: 
+8,T2TT,eng,deu,I love coffee in the morning.,,,,,ERROR: 
+9,T2TT,eng,arb,Where is the train station?,,,,,ERROR: 
+10,T2TT,eng,kor,Thank you very much.,,,,,ERROR: 
+11,T2TT,ind,cmn,Selamat datang.,,,,,ERROR: 
+12,T2TT,fra,eng,"Bonjour, comment allez-vous?",,,,,ERROR: 
+13,T2TT,jpn,ind,おはようございます。,おはようございます,Selamat pagi.,,2.144,auto
+14,T2TT,ind,spa,Sampai jumpa besok.,Hasta ver mañana.,Hasta mañana.,,1.803,auto
+15,T2TT,ind,eng,Universitas ini memiliki fasilitas yang sangat lengkap dan modern untuk mendukung kegiatan penelitian mahasiswa.,The university has a very complete and modern facility to support the research activities of students.,This university has very complete and modern facilities to support student research activities.,,4.109,auto

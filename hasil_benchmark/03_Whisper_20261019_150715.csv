@@ -1,0 +1,16 @@
+﻿No,Model_Size,Bahasa,Nama_Audio,Durasi_Audio_detik,Transkripsi_Referensi,Transkripsi_Whisper,Jumlah_Kata_Referensi,Jumlah_Kata_Whisper,WER_persen,Waktu_Proses_detik,RTF,Keterangan
+1,base,id,synth_01_gtts,0,Selamat pagi semua orang,Selamat pagi semua orang.,4,4,25.0,2.574,,audio:gtts
+2,base,id,synth_02_gtts,0,Saya sedang belajar kecerdasan buatan,Saya sedang belajar kecirdasan buatan.,5,5,40.0,1.028,,audio:gtts
+3,base,id,synth_03_gtts,0,Teknologi berkembang dengan sangat cepat,teknologi berkembang dengan sangat cepat.,5,5,20.0,1.007,,audio:gtts
+4,base,id,synth_04_gtts,0,Universitas saya terletak di kota Bandung,Universitas saya terletak di Kota Bandung.,6,6,16.67,1.013,,audio:gtts
+5,base,id,synth_05_gtts,0,Cuaca hari ini sangat cerah dan menyenangkan,Cua jahari ini sangat cerah dan menyenangkan.,7,7,42.86,1.023,,audio:gtts
+6,base,id,synth_06_gtts,0,Penelitian tugas akhir ini membahas model kecerdasan buatan untuk pemrosesan audio,Penelitian tugas akhir ini membahas model kecerdasan buatan untuk pemrosisan audio.,11,11,18.18,1.233,,audio:gtts
+7,base,id,synth_07_gtts,0,Python adalah bahasa pemrograman yang populer,Piton adalah bahasa pemrograman yang populer.,6,6,33.33,0.985,,audio:gtts
+8,base,id,synth_08_gtts,0,Kecerdasan buatan dapat membantu manusia dalam berbagai bidang,Kecerdasan buatan dapat membantu manusia dalam berbagai bidang.,8,8,12.5,1.062,,audio:gtts
+9,base,en,synth_09_gtts,0,Hello my name is John,Hello my name is John.,5,5,20.0,0.563,,audio:gtts
+10,base,en,synth_10_gtts,0,The weather is very nice today,The weather is very nice today.,6,6,16.67,0.578,,audio:gtts
+11,base,en,synth_11_gtts,0,Artificial intelligence is changing the world,Artificial intelligence is changing the world.,6,6,16.67,0.592,,audio:gtts
+12,base,en,synth_12_gtts,0,I am testing a speech recognition system,I am testing a speech recognition system.,7,7,14.29,0.589,,audio:gtts
+13,tiny,id,synth_13_gtts,0,Selamat datang di sistem pengenalan suara,Selamat datang di sistem pengenalan suara.,6,6,16.67,17.541,,audio:gtts
+14,base,id,synth_14_gtts,0,Selamat datang di sistem pengenalan suara,Selamat datang di sistem pengenalan suara.,6,6,16.67,1.017,,audio:gtts
+15,small,id,synth_15_gtts,0,Selamat datang di sistem pengenalan suara,Selamat datang di Sistem Pengenalan Suara,6,6,0.0,111.498,,audio:gtts

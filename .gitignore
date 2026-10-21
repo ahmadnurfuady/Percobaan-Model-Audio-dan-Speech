@@ -29,8 +29,6 @@ temp_audio/
 *.wav
 *.mp3
 
-# Benchmark results (generated)
-hasil_benchmark/
 
 # OS
 Thumbs.db

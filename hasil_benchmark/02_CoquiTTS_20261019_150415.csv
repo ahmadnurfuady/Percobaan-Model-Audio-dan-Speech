@@ -1,0 +1,16 @@
+﻿No,Model_TTS,Bahasa,Teks_Input,Panjang_Teks_kata,Durasi_Audio_detik,Sample_Rate_Hz,Waktu_Generate_detik,RTF,Naturalness_1_5,Keterangan
+1,vits,en,"Hello, welcome to our demonstration.",5,2.984,22050,1.452,0.4866,,auto
+2,vits,en,The quick brown fox jumps over the lazy dog.,9,3.6,22050,1.382,0.3839,,auto
+3,vits,en,Artificial intelligence is transforming the world.,6,3.913,22050,1.6,0.4089,,auto
+4,vits,en,Today is a beautiful day with clear blue skies and warm sunshine.,12,5.26,22050,2.016,0.3833,,auto
+5,vits,en,I am testing a text to speech system for my final college project.,13,5.306,22050,2.074,0.3909,,auto
+6,xtts_v2,en,"Hello, this is a multilingual speech synthesis test.",,,,,,,ERROR: 'NoneType' object has no attribute 'shape'
+7,xtts_v2,es,"Hola, bienvenido a nuestra demostración.",,,,,,,ERROR: 'NoneType' object has no attribute 'shape'
+8,xtts_v2,fr,"Bonjour, comment allez-vous aujourd'hui?",,,,,,,ERROR: 'NoneType' object has no attribute 'shape'
+9,xtts_v2,de,"Guten Morgen, wie geht es Ihnen?",,,,,,,ERROR: 'NoneType' object has no attribute 'shape'
+10,xtts_v2,ja,こんにちは、今日はいい天気ですね。,,,,,,,ERROR: No module named 'cutlet'
+11,xtts_v2,zh-cn,你好，欢迎来到我们的演示。,,,,,,,ERROR: Chinese requires: pypinyin
+12,xtts_v2,ko,"안녕하세요, 오늘 날씨가 좋네요.",,,,,,,ERROR: 'NoneType' object has no attribute 'shape'
+13,xtts_v2,hi,"नमस्ते, आप कैसे हैं?",,,,,,,ERROR: 'NoneType' object has no attribute 'shape'
+14,xtts_v2,pt,"Olá, como você está hoje?",,,,,,,ERROR: 'NoneType' object has no attribute 'shape'
+15,xtts_v2,ru,"Привет, как ты себя чувствуешь?",,,,,,,ERROR: 'NoneType' object has no attribute 'shape'
